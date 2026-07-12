@@ -1,0 +1,17 @@
+# Aim990 — official support
+
+> Official support, privacy, App Store, and guide links for Aim990.
+
+## Apps
+
+- [Aim990 on the App Store](https://apps.apple.com/app/id6784974530)
+- [Aim990 independent guide](https://alice51849.github.io/ios-app-guide/guides/aim990.html)
+
+## Support
+
+- [Official support site](https://alice51849.github.io/aim990-support/)
+- [Privacy policy](https://alice51849.github.io/aim990-support/privacy.html)
+
+## Portfolio
+
+- [All public iOS apps](https://alice51849.github.io/ios-app-guide/apps/index.html)
