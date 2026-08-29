@@ -7,6 +7,7 @@ import hashlib
 import html
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -210,6 +211,32 @@ def check_html(page: str) -> list[str]:
     if ("x-default", expected_default) not in pairs:
         errors.append(f"{filename}: x-default is missing or incorrect")
     if is_static:
+        script_match = re.search(
+            r'<script data-query-locale-redirect="v1">(.*?)</script>',
+            text,
+            flags=re.DOTALL,
+        )
+        if script_match:
+            try:
+                syntax = subprocess.run(
+                    ["node", "--check"],
+                    input=script_match.group(1),
+                    capture_output=True,
+                    text=True,
+                    timeout=10,
+                    check=False,
+                )
+            except (OSError, subprocess.SubprocessError) as error:
+                errors.append(
+                    f"{filename}: query-locale redirect syntax check failed: {error}"
+                )
+            else:
+                if syntax.returncode:
+                    detail = (syntax.stderr or syntax.stdout).strip().splitlines()
+                    errors.append(
+                        f"{filename}: query-locale redirect is invalid JavaScript"
+                        + (f": {detail[-1]}" if detail else "")
+                    )
         match = re.search(
             r'<script data-query-locale-redirect="v1">'
             r'\(\(\)=>\{const routes=(\{.*?\});const params=',

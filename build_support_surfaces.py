@@ -666,7 +666,7 @@ def query_locale_redirect(
         "const query=params.toString();"
         "window.location.replace(routes[requested]+"
         '(query?"?"+query:"")+window.location.hash)'
-        "}})();</script>\n"
+        "})();</script>\n"
     )
 
 

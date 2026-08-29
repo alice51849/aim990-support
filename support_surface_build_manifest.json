@@ -1,7 +1,7 @@
 {
   "base_sha": "ed1180b13aebbc58860e5e5e668095ce82a23c9d",
   "catalog_digest": "73e695215f5c1f227535719048669c08733c71a1a22883e73aea0831f34fb764",
-  "content_digest": "4f5357434381b856dac7fec6a06b9009d067058ef627849780b3e42dfbe1ba0e",
+  "content_digest": "1168ca95be6c5d9332e7c94bfdd1b11c7fd06d241a943d3b324dd571abdce62e",
   "contract_digest": "58f2bdf84b6fd6a2825b88c6898546c1acb5bb486207528214c49b7d1b923395",
   "official_locale_count": 50,
   "optional_help_files": {
@@ -87,7 +87,7 @@
     "id/index.html": "538c30a6bb6620ec241d6edf4ea87e7253cc4348a9523ebe882a9d934760bd9b",
     "id/privacy.html": "543a9d2428da39c7440c13038a5b75d706bef9b9d8b05d762b060fec0dc8acac",
     "id/support.html": "4e2751669373e71844f23a702d02b9be6012b4d86a55935e5c6fed446da5ab71",
-    "index.html": "d0fdee29a4b21136413c2a2cd76a2763cb181e1fdee583d7724236125c2c1231",
+    "index.html": "64c329cb22d6a543f36a56401bfec95a7ff318bf9e6422dfa9348f432ce6bc21",
     "it/index.html": "6283ecba58f3dc92ed36699494c4bac3c56e63bf8fa41615ba46fe8b330e1b70",
     "it/privacy.html": "9269e5259b69c4f45b2d9682175f6dc0adf6da9fffdaefe753f97de883173e3c",
     "it/support.html": "1c0d0a403388e99cd30c1e5da44f6124c0bb5f713292fb18789e4e059374e975",
@@ -124,7 +124,7 @@
     "pl/index.html": "017c8c6ebdb6607263fb051b2cd0e1717742bb8ab505eaab6c58e4047e5e088e",
     "pl/privacy.html": "737190b3b70eb12451291dacbc35a8e2250d7e9793bea63189720fae555b9b37",
     "pl/support.html": "7c300e729e686a2ead0d03991339c3994bfaadf54667b87b2170dd89e690d778",
-    "privacy.html": "422551c7f776e5437929039603e726db504b2f052a5fcd2bec062ce9d361793e",
+    "privacy.html": "d4a45dc1e8f42cf684e6a00fa9fbae7f1a86c88503c44c33e1a94e9a28852c45",
     "pt-BR/index.html": "8ed7fdf4f61e36653126641498ee0ca664b5ff205cbfbfb04abdfc67147ebd92",
     "pt-BR/privacy.html": "314822e315625f5dbf3f0a4930067f25fbc60b40202d48fad65d615c173d2a58",
     "pt-BR/support.html": "b2adac74b8753f86c1315a165ddac43c6609b3cb5b568587d08a115133dd0382",
