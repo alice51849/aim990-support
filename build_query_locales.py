@@ -6,6 +6,7 @@ from __future__ import annotations
 import html
 import json
 import re
+from functools import lru_cache
 from pathlib import Path
 
 
@@ -25,15 +26,27 @@ OFFICIAL_LOCALES = (
 GENERATED_LOCALES = frozenset(("en-AU", "en-CA", "en-GB", "en-US", "or-IN"))
 
 
-def metadata(locale: str) -> dict:
-    return json.loads((METADATA_ROOT / f"{locale}.json").read_text(encoding="utf-8"))
+@lru_cache(maxsize=1)
+def embedded_catalog() -> dict:
+    text = (ROOT / "locales.js").read_text(encoding="utf-8")
+    prefix = "window.AIM990_LOCALES = "
+    if not text.startswith(prefix) or not text.rstrip().endswith(";"):
+        raise ValueError("locales.js is not a JSON-backed AIM990_LOCALES assignment")
+    return json.loads(text[len(prefix):].rstrip()[:-1])
 
 
 def legal_notice(locale: str) -> str:
-    paragraphs = metadata(locale)["description"].split("\n\n")
-    for paragraph in reversed(paragraphs):
-        if "ETS" in paragraph and "TOEIC" in paragraph:
-            return paragraph.strip()
+    metadata_path = METADATA_ROOT / f"{locale}.json"
+    if metadata_path.is_file():
+        paragraphs = json.loads(metadata_path.read_text(encoding="utf-8"))[
+            "description"
+        ].split("\n\n")
+        for paragraph in reversed(paragraphs):
+            if "ETS" in paragraph and "TOEIC" in paragraph:
+                return paragraph.strip()
+    notice = embedded_catalog().get(locale, {}).get("legalNotice")
+    if isinstance(notice, str) and "ETS" in notice and "TOEIC" in notice:
+        return notice.strip()
     raise ValueError(f"{locale}: metadata description has no ETS/TOEIC notice")
 
 

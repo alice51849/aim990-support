@@ -282,6 +282,17 @@ def check_runtime() -> list[str]:
 
 def check_metadata() -> list[str]:
     errors = []
+    if not METADATA_ROOT.exists():
+        source_path = ROOT / "support_surface_source.json"
+        try:
+            source = json.loads(source_path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, json.JSONDecodeError) as error:
+            return [f"self-contained source contract cannot be read: {error}"]
+        if set(source.get("official_locales", ())) != set(OFFICIAL_LOCALES):
+            errors.append(
+                "self-contained source locale set differs from Apple official exact-50"
+            )
+        return errors
     files = {path.stem: path for path in METADATA_ROOT.glob("*.json")}
     if set(files) != set(OFFICIAL_LOCALES):
         return ["metadata locale set differs from Apple official exact-50"]

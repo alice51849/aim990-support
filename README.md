@@ -21,12 +21,15 @@ Both pages accept every Apple official App Store locale through the exact
 ## Local maintenance
 
 ```sh
+python3 build_support_surfaces.py
+python3 build_support_surfaces.py --test
 python3 build_query_locales.py
-python3 sync_metadata_urls.py
 python3 lint_site.py
 ```
 
-These commands only update local files. Publishing or changing App Store
-Connect is intentionally outside this repository workflow.
+These commands are self-contained and only update or validate local files.
+`sync_metadata_urls.py` is an optional companion command when this repository is
+checked out beside Aim990's App Store metadata. Publishing or changing App
+Store Connect is intentionally outside this repository workflow.
 
 <!-- END MANAGED APP STORE LINKS -->
