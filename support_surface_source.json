@@ -481,12 +481,14 @@
       "en-AU",
       "en-CA",
       "en-GB",
+      "en-US",
       "or-IN"
     ],
     "privacy": [
       "en-AU",
       "en-CA",
       "en-GB",
+      "en-US",
       "or-IN"
     ],
     "support": [
@@ -681,6 +683,56 @@
         },
         {
           "body": "Text, speech, or image recognition covered by this policy runs on your device. Recognised content is not sent to a developer server.",
+          "heading": "Recognition",
+          "topic": "recognition"
+        },
+        {
+          "body": "The optional one-time in-app purchase is processed by Apple through the App Store. The developer does not receive payment details, and there is no recurring subscription.",
+          "heading": "Purchases",
+          "topic": "purchase"
+        },
+        {
+          "body": "{app} contains no third-party advertising, analytics, attribution, or tracking SDK. The developer does not build a cross-app or cross-site profile.",
+          "heading": "Advertising, analytics, and tracking",
+          "topic": "third"
+        },
+        {
+          "body": "Because {app} does not collect personal data, it does not collect a child's personal data. It does not ask the developer for a child's name, birth date, contact details, photos, or health information.",
+          "heading": "Children's privacy",
+          "topic": "child"
+        },
+        {
+          "body": "If the app changes in a way that affects this policy, this page and its last-updated date will be revised.",
+          "heading": "Changes to this policy",
+          "topic": "change"
+        },
+        {
+          "body": "For privacy questions, email {email}.",
+          "heading": "Contact",
+          "topic": "contact"
+        }
+      ],
+      "title": "{app} Privacy Policy",
+      "translation_note": "",
+      "updated_label": "Last updated"
+    },
+    "en-US": {
+      "description": "{app} privacy policy: data handling, on-device processing, Apple services, purchases, and contact.",
+      "eyebrow": "Privacy Policy",
+      "lead": "How {app} handles information, where eligible data stays, and which choices remain under your control.",
+      "sections": [
+        {
+          "body": "None. {app} does not collect, transmit, sell, or share personal data. There is no developer-run account or sign-in system.",
+          "heading": "Data we collect",
+          "topic": "collect"
+        },
+        {
+          "body": "Content and settings created in {app} stay in the app's local storage on your device. Removing the app removes its local app data; files you have deliberately exported remain wherever you saved them.",
+          "heading": "Data on your device",
+          "topic": "device"
+        },
+        {
+          "body": "Text, speech, or image recognition covered by this policy runs on your device. Recognized content is not sent to a developer server.",
           "heading": "Recognition",
           "topic": "recognition"
         },
