@@ -219,6 +219,32 @@ def check_runtime() -> list[str]:
     return errors
 
 
+def check_help_and_sitemap() -> list[str]:
+    errors = []
+    legacy_help = sorted(ROOT.glob("help*.html"))
+    if legacy_help:
+        errors.append(
+            "legacy duplicated help pages remain: "
+            + ", ".join(path.name for path in legacy_help)
+        )
+    for path in sorted(ROOT.glob("*/*.html")):
+        text = path.read_text(encoding="utf-8")
+        if re.search(r"href=\"\.\./help(?:\.[^\"]+)?\.html\"", text):
+            errors.append(f"{path.relative_to(ROOT)}: legacy help link remains")
+    sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    expected = (
+        "metadata/aim990-diagnosis-prescription-sitemap.xml"
+    )
+    if "<sitemapindex" not in sitemap or expected not in sitemap:
+        errors.append("sitemap.xml is not the Aim990 diagnostic sitemap index")
+    if not (ROOT / expected).is_file():
+        errors.append("Aim990 diagnostic sitemap payload is missing")
+    robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
+    if f"Sitemap: {BASE_URL}sitemap.xml" not in robots:
+        errors.append("robots.txt does not reference the canonical sitemap index")
+    return errors
+
+
 def check_metadata() -> list[str]:
     errors = []
     files = {path.stem: path for path in METADATA_ROOT.glob("*.json")}
@@ -251,6 +277,7 @@ def main() -> int:
         + check_html("support")
         + check_html("privacy")
         + check_runtime()
+        + check_help_and_sitemap()
         + check_metadata()
     )
     if errors:
