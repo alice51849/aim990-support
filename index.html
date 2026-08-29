@@ -1,204 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-US" dir="ltr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aim990 · Support &amp; Help Center</title>
-<link rel="canonical" href="https://alice51849.github.io/aim990-support/">
-<meta name="description" content="Official support center for Aim990 — a premium 30-day TOEIC® L&R-style test-prep coach. Offline, private, one-time purchase. FAQ, contact and help. Aim990 多益備考教練官方支援中心。">
-<meta property="og:title" content="Aim990 · Support Center">
-<meta property="og:description" content="Support, FAQ and help for Aim990 — 30-day TOEIC® L&R-style prep, offline & private, one-time purchase.">
-<link rel="icon" href="logo.png">
-<style>
-  :root{
-    --ink:#0d1b34; --ink2:#3a4a6b; --muted:#7c89a3;
-    --line:#e6ebf5; --line2:#dde4f1;
-    --bg:#f6f8fd; --panel:#ffffff;
-    --navy:#14306a; --navy2:#1e3f86; --blue:#2f6bff;
-    --gold:#e0a72e; --gold-ink:#b8841c; --gold-soft:#fff6e2; --amber:#f4c451;
-    --shadow:0 1px 2px rgba(16,32,70,.05), 0 14px 36px -18px rgba(20,48,106,.30);
-    --shadow-lg:0 4px 10px rgba(16,32,70,.08), 0 44px 80px -34px rgba(20,48,106,.46);
-    --radius:22px; --maxw:1120px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0; color:var(--ink); background:var(--bg);
-    font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI","PingFang TC","Noto Sans TC",Roboto,"Helvetica Neue",Arial,sans-serif;
-    font-size:16.5px; line-height:1.7; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;}
-  a{color:var(--blue); text-decoration:none}
-  .container{max-width:var(--maxw); margin:0 auto; padding:0 24px}
-  .zh{color:var(--muted); font-weight:500}
-  .eyebrow{font-size:.74rem; font-weight:800; letter-spacing:2.6px; text-transform:uppercase; color:var(--gold-ink); margin:0 0 12px}
-  header.nav{position:sticky; top:0; z-index:60; background:rgba(246,248,253,.74);
-    backdrop-filter:saturate(180%) blur(18px); -webkit-backdrop-filter:saturate(180%) blur(18px); border-bottom:1px solid var(--line)}
-  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 24px}
-  .brand-lockup{display:flex; align-items:center; gap:12px}
-  .brand-lockup img{width:40px; height:40px; border-radius:12px; box-shadow:0 4px 12px -2px rgba(20,48,106,.5)}
-  .brand-lockup .name{font-weight:850; font-size:1.06rem; line-height:1.15}
-  .brand-lockup .name small{display:block; font-weight:600; font-size:.7rem; color:var(--muted); letter-spacing:.6px}
-  .nav-links{display:flex; gap:4px; align-items:center}
-  .nav-links a{color:var(--ink2); font-weight:600; font-size:.92rem; padding:9px 15px; border-radius:11px; transition:.15s}
-  .nav-links a:hover{color:var(--navy); background:#eaf0fd}
-  .nav-links a.cta{color:#fff; background:linear-gradient(135deg,var(--navy2),var(--navy)); box-shadow:0 10px 22px -10px var(--navy); margin-left:6px}
-  @media (max-width:780px){ .nav-links a:not(.cta){display:none} }
-  .hero{position:relative; overflow:hidden; padding:84px 0 70px;
-    background:radial-gradient(720px 460px at 16% 2%, #eaf1ff, transparent 60%),
-      radial-gradient(820px 520px at 92% -4%, #fff2cf, transparent 62%),
-      linear-gradient(180deg,#fbfcff,#eef3fd);}
-  .hero::after{content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(246,248,253,0) 80%, var(--bg) 100%)}
-  .badge{display:inline-flex; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line2); color:var(--ink2);
-    padding:7px 14px; border-radius:999px; font-weight:700; font-size:.82rem; box-shadow:var(--shadow)}
-  .badge .dot{width:8px;height:8px;border-radius:50%;background:#2bbf73}
-  h1.title{font-size:clamp(2.2rem,5vw,3.5rem); line-height:1.05; letter-spacing:-1px; font-weight:880; margin:18px 0 14px}
-  h1.title .grad{background:linear-gradient(120deg,var(--navy),var(--blue) 60%,var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent}
-  .lede{font-size:1.18rem; color:var(--ink2); max-width:640px; margin:0 0 12px}
-  .hero .zh{max-width:640px}
-  .hero-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:26px}
-  .btn{display:inline-flex; align-items:center; gap:9px; padding:14px 22px; border-radius:14px; font-weight:750; font-size:1rem; transition:.16s; border:1px solid transparent}
-  .btn.primary{color:#fff; background:linear-gradient(135deg,var(--navy2),var(--navy)); box-shadow:0 16px 30px -14px var(--navy)}
-  .btn.primary:hover{transform:translateY(-2px)}
-  .btn.ghost{color:var(--navy); background:var(--panel); border-color:var(--line2); box-shadow:var(--shadow)}
-  .btn.ghost:hover{background:#eef3fd}
-  section{padding:64px 0}
-  .sec-head{text-align:center; max-width:680px; margin:0 auto 40px}
-  .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem); font-weight:850; letter-spacing:-.5px; margin:.2em 0 .25em}
-  .sec-head p{color:var(--ink2); font-size:1.06rem}
-  .grid{display:grid; gap:18px}
-  .g3{grid-template-columns:repeat(3,1fr)}
-  @media (max-width:880px){.g3{grid-template-columns:1fr}}
-  .card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow)}
-  .card .ic{width:46px;height:46px;border-radius:13px; display:grid; place-items:center; font-size:1.4rem;
-    background:linear-gradient(135deg,#eaf1ff,#fff5da); margin-bottom:14px}
-  .card h3{font-size:1.12rem; font-weight:800; margin:0 0 6px}
-  .card p{color:var(--ink2); font-size:.98rem; margin:0}
-  .faq{max-width:820px; margin:0 auto}
-  details{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:4px 22px; margin-bottom:12px; box-shadow:var(--shadow)}
-  details summary{cursor:pointer; list-style:none; padding:18px 0; font-weight:750; font-size:1.05rem; display:flex; justify-content:space-between; align-items:center; gap:16px}
-  details summary::-webkit-details-marker{display:none}
-  details summary::after{content:"+"; color:var(--gold-ink); font-weight:800; font-size:1.4rem; transition:.2s}
-  details[open] summary::after{transform:rotate(45deg)}
-  details .ans{padding:0 0 20px; color:var(--ink2)}
-  details .ans .zh{display:block; margin-top:8px}
-  .contact{background:linear-gradient(150deg,var(--navy),#0a1c44); color:#eaf0ff; border-radius:28px; padding:54px 40px; text-align:center; box-shadow:var(--shadow-lg); position:relative; overflow:hidden}
-  .contact h2{font-size:2rem; font-weight:850; margin:0 0 10px; color:#fff}
-  .contact p{color:#bcccf0; max-width:560px; margin:0 auto 26px}
-  .contact .btn.primary{background:linear-gradient(135deg,var(--amber),var(--gold)); color:#3a2a05; box-shadow:0 16px 34px -14px var(--gold)}
-  footer{padding:48px 0 60px; text-align:center; color:var(--muted); font-size:.9rem}
-  footer .disc{max-width:760px; margin:14px auto 0; font-size:.82rem; line-height:1.6}
-  footer a{color:var(--ink2); font-weight:600}
-</style>
-<!-- ls-i18n:start -->
-<link rel="alternate" hreflang="en" href="https://alice51849.github.io/aim990-support/">
-<link rel="alternate" hreflang="en-GB" href="https://alice51849.github.io/aim990-support/">
-<link rel="alternate" hreflang="en-AU" href="https://alice51849.github.io/aim990-support/">
-<link rel="alternate" hreflang="en-CA" href="https://alice51849.github.io/aim990-support/">
-<link rel="alternate" hreflang="ar-SA" href="https://alice51849.github.io/aim990-support/ar-SA/">
-<link rel="alternate" hreflang="bn-BD" href="https://alice51849.github.io/aim990-support/bn-BD/">
-<link rel="alternate" hreflang="ca" href="https://alice51849.github.io/aim990-support/ca/">
-<link rel="alternate" hreflang="cs" href="https://alice51849.github.io/aim990-support/cs/">
-<link rel="alternate" hreflang="da" href="https://alice51849.github.io/aim990-support/da/">
-<link rel="alternate" hreflang="de-DE" href="https://alice51849.github.io/aim990-support/de-DE/">
-<link rel="alternate" hreflang="el" href="https://alice51849.github.io/aim990-support/el/">
-<link rel="alternate" hreflang="es-ES" href="https://alice51849.github.io/aim990-support/es-ES/">
-<link rel="alternate" hreflang="es-MX" href="https://alice51849.github.io/aim990-support/es-MX/">
-<link rel="alternate" hreflang="fi" href="https://alice51849.github.io/aim990-support/fi/">
-<link rel="alternate" hreflang="fr-CA" href="https://alice51849.github.io/aim990-support/fr-CA/">
-<link rel="alternate" hreflang="fr-FR" href="https://alice51849.github.io/aim990-support/fr-FR/">
-<link rel="alternate" hreflang="gu-IN" href="https://alice51849.github.io/aim990-support/gu-IN/">
-<link rel="alternate" hreflang="he" href="https://alice51849.github.io/aim990-support/he/">
-<link rel="alternate" hreflang="hi" href="https://alice51849.github.io/aim990-support/hi/">
-<link rel="alternate" hreflang="hr" href="https://alice51849.github.io/aim990-support/hr/">
-<link rel="alternate" hreflang="hu" href="https://alice51849.github.io/aim990-support/hu/">
-<link rel="alternate" hreflang="id" href="https://alice51849.github.io/aim990-support/id/">
-<link rel="alternate" hreflang="it" href="https://alice51849.github.io/aim990-support/it/">
-<link rel="alternate" hreflang="ja" href="https://alice51849.github.io/aim990-support/ja/">
-<link rel="alternate" hreflang="kn-IN" href="https://alice51849.github.io/aim990-support/kn-IN/">
-<link rel="alternate" hreflang="ko" href="https://alice51849.github.io/aim990-support/ko/">
-<link rel="alternate" hreflang="ml-IN" href="https://alice51849.github.io/aim990-support/ml-IN/">
-<link rel="alternate" hreflang="mr-IN" href="https://alice51849.github.io/aim990-support/mr-IN/">
-<link rel="alternate" hreflang="ms" href="https://alice51849.github.io/aim990-support/ms/">
-<link rel="alternate" hreflang="nl-NL" href="https://alice51849.github.io/aim990-support/nl-NL/">
-<link rel="alternate" hreflang="no" href="https://alice51849.github.io/aim990-support/no/">
-<link rel="alternate" hreflang="pa-IN" href="https://alice51849.github.io/aim990-support/pa-IN/">
-<link rel="alternate" hreflang="pl" href="https://alice51849.github.io/aim990-support/pl/">
-<link rel="alternate" hreflang="pt-BR" href="https://alice51849.github.io/aim990-support/pt-BR/">
-<link rel="alternate" hreflang="pt-PT" href="https://alice51849.github.io/aim990-support/pt-PT/">
-<link rel="alternate" hreflang="ro" href="https://alice51849.github.io/aim990-support/ro/">
-<link rel="alternate" hreflang="ru" href="https://alice51849.github.io/aim990-support/ru/">
-<link rel="alternate" hreflang="sk" href="https://alice51849.github.io/aim990-support/sk/">
-<link rel="alternate" hreflang="sl-SI" href="https://alice51849.github.io/aim990-support/sl-SI/">
-<link rel="alternate" hreflang="sv" href="https://alice51849.github.io/aim990-support/sv/">
-<link rel="alternate" hreflang="ta-IN" href="https://alice51849.github.io/aim990-support/ta-IN/">
-<link rel="alternate" hreflang="te-IN" href="https://alice51849.github.io/aim990-support/te-IN/">
-<link rel="alternate" hreflang="th" href="https://alice51849.github.io/aim990-support/th/">
-<link rel="alternate" hreflang="tr" href="https://alice51849.github.io/aim990-support/tr/">
-<link rel="alternate" hreflang="uk" href="https://alice51849.github.io/aim990-support/uk/">
-<link rel="alternate" hreflang="ur-PK" href="https://alice51849.github.io/aim990-support/ur-PK/">
-<link rel="alternate" hreflang="vi" href="https://alice51849.github.io/aim990-support/vi/">
-<link rel="alternate" hreflang="zh-Hans" href="https://alice51849.github.io/aim990-support/zh-Hans/">
-<link rel="alternate" hreflang="zh-Hant" href="https://alice51849.github.io/aim990-support/zh-Hant/">
-<link rel="alternate" hreflang="x-default" href="https://alice51849.github.io/aim990-support/">
-<!-- ls-i18n:end -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Aim990 Support Center</title>
+  <meta name="description" content="Aim990 support, troubleshooting, privacy information, and direct contact.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://alice51849.github.io/aim990-support/?lang=en-US">
+  <link rel="alternate" hreflang="ar-SA" href="https://alice51849.github.io/aim990-support/?lang=ar-SA">
+<link rel="alternate" hreflang="bn-BD" href="https://alice51849.github.io/aim990-support/?lang=bn-BD">
+<link rel="alternate" hreflang="ca" href="https://alice51849.github.io/aim990-support/?lang=ca">
+<link rel="alternate" hreflang="zh-Hans" href="https://alice51849.github.io/aim990-support/?lang=zh-Hans">
+<link rel="alternate" hreflang="zh-Hant" href="https://alice51849.github.io/aim990-support/?lang=zh-Hant">
+<link rel="alternate" hreflang="hr" href="https://alice51849.github.io/aim990-support/?lang=hr">
+<link rel="alternate" hreflang="cs" href="https://alice51849.github.io/aim990-support/?lang=cs">
+<link rel="alternate" hreflang="da" href="https://alice51849.github.io/aim990-support/?lang=da">
+<link rel="alternate" hreflang="nl-NL" href="https://alice51849.github.io/aim990-support/?lang=nl-NL">
+<link rel="alternate" hreflang="en-AU" href="https://alice51849.github.io/aim990-support/?lang=en-AU">
+<link rel="alternate" hreflang="en-CA" href="https://alice51849.github.io/aim990-support/?lang=en-CA">
+<link rel="alternate" hreflang="en-GB" href="https://alice51849.github.io/aim990-support/?lang=en-GB">
+<link rel="alternate" hreflang="en-US" href="https://alice51849.github.io/aim990-support/?lang=en-US">
+<link rel="alternate" hreflang="fi" href="https://alice51849.github.io/aim990-support/?lang=fi">
+<link rel="alternate" hreflang="fr-CA" href="https://alice51849.github.io/aim990-support/?lang=fr-CA">
+<link rel="alternate" hreflang="fr-FR" href="https://alice51849.github.io/aim990-support/?lang=fr-FR">
+<link rel="alternate" hreflang="de-DE" href="https://alice51849.github.io/aim990-support/?lang=de-DE">
+<link rel="alternate" hreflang="el" href="https://alice51849.github.io/aim990-support/?lang=el">
+<link rel="alternate" hreflang="gu-IN" href="https://alice51849.github.io/aim990-support/?lang=gu-IN">
+<link rel="alternate" hreflang="he" href="https://alice51849.github.io/aim990-support/?lang=he">
+<link rel="alternate" hreflang="hi" href="https://alice51849.github.io/aim990-support/?lang=hi">
+<link rel="alternate" hreflang="hu" href="https://alice51849.github.io/aim990-support/?lang=hu">
+<link rel="alternate" hreflang="id" href="https://alice51849.github.io/aim990-support/?lang=id">
+<link rel="alternate" hreflang="it" href="https://alice51849.github.io/aim990-support/?lang=it">
+<link rel="alternate" hreflang="ja" href="https://alice51849.github.io/aim990-support/?lang=ja">
+<link rel="alternate" hreflang="kn-IN" href="https://alice51849.github.io/aim990-support/?lang=kn-IN">
+<link rel="alternate" hreflang="ko" href="https://alice51849.github.io/aim990-support/?lang=ko">
+<link rel="alternate" hreflang="ms" href="https://alice51849.github.io/aim990-support/?lang=ms">
+<link rel="alternate" hreflang="ml-IN" href="https://alice51849.github.io/aim990-support/?lang=ml-IN">
+<link rel="alternate" hreflang="mr-IN" href="https://alice51849.github.io/aim990-support/?lang=mr-IN">
+<link rel="alternate" hreflang="no" href="https://alice51849.github.io/aim990-support/?lang=no">
+<link rel="alternate" hreflang="or-IN" href="https://alice51849.github.io/aim990-support/?lang=or-IN">
+<link rel="alternate" hreflang="pl" href="https://alice51849.github.io/aim990-support/?lang=pl">
+<link rel="alternate" hreflang="pt-BR" href="https://alice51849.github.io/aim990-support/?lang=pt-BR">
+<link rel="alternate" hreflang="pt-PT" href="https://alice51849.github.io/aim990-support/?lang=pt-PT">
+<link rel="alternate" hreflang="pa-IN" href="https://alice51849.github.io/aim990-support/?lang=pa-IN">
+<link rel="alternate" hreflang="ro" href="https://alice51849.github.io/aim990-support/?lang=ro">
+<link rel="alternate" hreflang="ru" href="https://alice51849.github.io/aim990-support/?lang=ru">
+<link rel="alternate" hreflang="sk" href="https://alice51849.github.io/aim990-support/?lang=sk">
+<link rel="alternate" hreflang="sl-SI" href="https://alice51849.github.io/aim990-support/?lang=sl-SI">
+<link rel="alternate" hreflang="es-MX" href="https://alice51849.github.io/aim990-support/?lang=es-MX">
+<link rel="alternate" hreflang="es-ES" href="https://alice51849.github.io/aim990-support/?lang=es-ES">
+<link rel="alternate" hreflang="sv" href="https://alice51849.github.io/aim990-support/?lang=sv">
+<link rel="alternate" hreflang="ta-IN" href="https://alice51849.github.io/aim990-support/?lang=ta-IN">
+<link rel="alternate" hreflang="te-IN" href="https://alice51849.github.io/aim990-support/?lang=te-IN">
+<link rel="alternate" hreflang="th" href="https://alice51849.github.io/aim990-support/?lang=th">
+<link rel="alternate" hreflang="tr" href="https://alice51849.github.io/aim990-support/?lang=tr">
+<link rel="alternate" hreflang="uk" href="https://alice51849.github.io/aim990-support/?lang=uk">
+<link rel="alternate" hreflang="ur-PK" href="https://alice51849.github.io/aim990-support/?lang=ur-PK">
+<link rel="alternate" hreflang="vi" href="https://alice51849.github.io/aim990-support/?lang=vi">
+<link rel="alternate" hreflang="x-default" href="https://alice51849.github.io/aim990-support/?lang=en-US">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="locales.js"></script>
+  <script src="site.js" defer></script>
 </head>
-<body>
-<header class="nav"><div class="nav-inner">
-  <a class="brand-lockup" href="#top"><img src="logo.png" alt="Aim990"><span class="name">Aim990<small>TOEIC® L&amp;R Prep Coach</small></span></a>
-  <nav class="nav-links">
-    <a href="#features">Features</a><a href="#faq">FAQ</a><a href="privacy.html">Privacy</a>
-    <a class="cta" href="mailto:hourstag.app@gmail.com">Contact</a>
-  </nav>
-</div></header>
-
-<a id="top"></a>
-<div class="hero"><div class="container">
-  <span class="badge"><span class="dot"></span> All systems normal · Replies within 24–48h</span>
-  <h1 class="title">Aim990 <span class="grad">Support</span></h1>
-  <p class="lede">A premium 30-day TOEIC® Listening &amp; Reading-style coach — built to be focused, private, and offline. We're here to help you hit your score goal.</p>
-  <p class="zh">為專注、私密、可離線的 30 天 TOEIC® 聽讀風格備考教練提供協助。有任何問題都歡迎來信。</p>
-  <div class="hero-cta">
-    <a class="btn primary" href="mailto:hourstag.app@gmail.com">✉️ Email Support</a>
-    <a class="btn ghost" href="#faq">Read the FAQ</a>
-  </div>
-</div></div>
-
-<section id="features"><div class="container">
-  <div class="sec-head"><p class="eyebrow">What you get</p><h2>Everything you need for test day</h2>
-    <p>Train under realistic time pressure, fix your weak spots, and walk in confident.</p></div>
-  <div class="grid g3">
-    <div class="card"><div class="ic">🎯</div><h3>8-minute diagnosis</h3><p>Find your weakest areas fast and get a focused 30-day plan toward 600 / 730 / 800 / 900.</p></div>
-    <div class="card"><div class="ic">⚡️</div><h3>Daily sprints</h3><p>Grammar speed drills, reading time training, and listening dictation — a little every day.</p></div>
-    <div class="card"><div class="ic">📊</div><h3>Weakness analytics</h3><p>A clear skill radar shows exactly where to focus next, updated as you practice.</p></div>
-    <div class="card"><div class="ic">🧪</div><h3>Mock tests</h3><p>Simulate the real thing and get an estimated practice band before the big day.</p></div>
-    <div class="card"><div class="ic">🔒</div><h3>Private &amp; offline</h3><p>No account, no ads, no tracking. Your study data stays on your device.</p></div>
-    <div class="card"><div class="ic">💎</div><h3>One-time purchase</h3><p>Unlock everything with a single purchase. No subscription, no recurring fees.</p></div>
-  </div>
-</div></section>
-
-<section id="faq" style="padding-top:8px"><div class="container">
-  <div class="sec-head"><p class="eyebrow">Help</p><h2>Frequently asked questions</h2></div>
-  <div class="faq">
-    <details open><summary>Is Aim990 a subscription?</summary><div class="ans">No. Aim990 is a one-time purchase. Buy once and keep every premium feature — no subscription and no recurring charges.<span class="zh">不是訂閱制。Aim990 是一次性買斷,購買後即可使用所有進階功能,沒有任何循環費用。</span></div></details>
-    <details><summary>Does it work offline?</summary><div class="ans">Yes. Core practice, diagnosis, analytics and mock tests work fully offline. Your data never leaves your device.<span class="zh">可以。核心練習、診斷、分析與模擬考都能完全離線使用,資料不會離開你的裝置。</span></div></details>
-    <details><summary>How do I restore my purchase on a new device?</summary><div class="ans">Open Aim990, go to Profile, and tap "Restore Purchases." Make sure you're signed in with the same Apple ID used for the original purchase.<span class="zh">開啟 Aim990 → 個人檔案 → 點「回復購買」,並確認使用與當初購買相同的 Apple ID。</span></div></details>
-    <details><summary>Is Aim990 affiliated with ETS or the official TOEIC® test?</summary><div class="ans">No. Aim990 is independent and unofficial. All content is original, created for TOEIC® Listening &amp; Reading-style preparation, and does not use official questions or guarantee any score.<span class="zh">沒有。Aim990 為獨立且非官方的備考工具,所有內容皆為原創,用於 TOEIC® 聽讀風格練習,不使用官方試題,也不保證任何分數。</span></div></details>
-    <details><summary>What does the score goal (600/730/800/900) change?</summary><div class="ans">Your goal tailors the daily plan's difficulty and pacing so practice stays challenging but achievable on your timeline.<span class="zh">你的目標分數會調整每日計畫的難度與節奏,讓練習維持「有挑戰但做得到」。</span></div></details>
-    <details><summary>I found a bug or have a feature request.</summary><div class="ans">We'd love to hear it. Email <a href="mailto:hourstag.app@gmail.com">hourstag.app@gmail.com</a> with your device model and iOS version and we'll get back to you.<span class="zh">非常歡迎來信 hourstag.app@gmail.com,附上機型與 iOS 版本,我們會盡快回覆。</span></div></details>
-  </div>
-</div></section>
-
-<section style="padding-top:8px"><div class="container">
-  <div class="contact">
-    <h2>Still need help?</h2>
-    <p>Email our team directly — we usually reply within 24–48 hours.<br>直接寫信給我們,通常 24–48 小時內回覆。</p>
-    <a class="btn primary" href="mailto:hourstag.app@gmail.com">✉️ hourstag.app@gmail.com</a>
-  </div>
-</div></section>
-
-<!-- ls-help:start --><section aria-label="Help &amp; FAQ" style="max-width:1060px;margin:30px auto 6px;padding:18px 22px;background:rgba(255,250,240,.75);border:1px solid rgba(120,100,70,.2);border-radius:20px;font-family:inherit;color:#3a3128"><h2 style="margin:0 0 6px;font-size:17px;color:#3a3128">Help &amp; FAQ</h2><p style="margin:0 0 10px;font-size:14.5px;color:#6b5f4f">Common questions, tips and troubleshooting for Aim990.</p><p style="margin:0;display:flex;flex-wrap:wrap;gap:18px;font-size:14.5px"><a href="help.html" style="font-weight:600;text-decoration:none">Open Help &amp; FAQ →</a><a href="https://apps.apple.com/app/id6784974530" rel="noopener" style="font-weight:600;text-decoration:none">View on the App Store →</a></p></section><!-- ls-help:end -->
-<!-- ls-family:start --><section aria-label="More apps from the same developer" style="max-width:1060px;margin:34px auto 26px;padding:20px 22px;background:rgba(127,127,127,.08);background:color-mix(in srgb, currentColor 7%, transparent);border:1px solid rgba(127,127,127,.18);border-color:color-mix(in srgb, currentColor 16%, transparent);border-radius:20px;font-family:inherit;color:inherit;text-align:left"><h2 style="margin:0 0 14px;font-size:17px;color:inherit">More apps from the same developer</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px"><a href="https://apps.apple.com/app/id6785004775?pt=118326163&amp;ct=sup_aim990&amp;mt=8" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(127,127,127,.10);background:color-mix(in srgb, currentColor 9%, transparent);border:1px solid rgba(127,127,127,.22);border-color:color-mix(in srgb, currentColor 20%, transparent);border-radius:16px;text-decoration:none;color:inherit;min-width:0;text-align:left"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b7/60/67/b76067fe-738a-e88b-e974-69c1c113c361/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt="" width="46" height="46" loading="lazy" style="border-radius:11px;flex:0 0 auto" /><span style="min-width:0"><strong style="display:block;font-size:14px;line-height:1.35">Mochi: Cute Checklist</strong><span style="display:block;font-size:12px;line-height:1.4;opacity:.72">Free · one-time purchase to unlock, no subscription</span><span style="display:block;font-size:12px;line-height:1.4;opacity:.72">View on the App Store</span></span></a><a href="https://apps.apple.com/app/id6797601720?pt=118326163&amp;ct=sup_aim990&amp;mt=8" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(127,127,127,.10);background:color-mix(in srgb, currentColor 9%, transparent);border:1px solid rgba(127,127,127,.22);border-color:color-mix(in srgb, currentColor 20%, transparent);border-radius:16px;text-decoration:none;color:inherit;min-width:0;text-align:left"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/01/59/fb/0159fb8d-4c75-6b73-aacc-c817842ab273/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt="" width="46" height="46" loading="lazy" style="border-radius:11px;flex:0 0 auto" /><span style="min-width:0"><strong style="display:block;font-size:14px;line-height:1.35">Wordmate Lite: Vocabulary</strong><span style="display:block;font-size:12px;line-height:1.4;opacity:.72">Free · one-time purchase to unlock, no subscription</span><span style="display:block;font-size:12px;line-height:1.4;opacity:.72">View on the App Store</span></span></a><a href="https://apps.apple.com/app/id6781337213?pt=118326163&amp;ct=sup_aim990&amp;mt=8" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(127,127,127,.10);background:color-mix(in srgb, currentColor 9%, transparent);border:1px solid rgba(127,127,127,.22);border-color:color-mix(in srgb, currentColor 20%, transparent);border-radius:16px;text-decoration:none;color:inherit;min-width:0;text-align:left"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b2/24/80/b22480dd-7e38-9375-7f31-c915576338c8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt="" width="46" height="46" loading="lazy" style="border-radius:11px;flex:0 0 auto" /><span style="min-width:0"><strong style="display:block;font-size:14px;line-height:1.35">CV Desk: ATS Resume Builder</strong><span style="display:block;font-size:12px;line-height:1.4;opacity:.72">Free · one-time purchase to unlock, no subscription</span><span style="display:block;font-size:12px;line-height:1.4;opacity:.72">View on the App Store</span></span></a><a href="https://apps.apple.com/app/id6798814385?pt=118326163&amp;ct=sup_aim990&amp;mt=8" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(127,127,127,.10);background:color-mix(in srgb, currentColor 9%, transparent);border:1px solid rgba(127,127,127,.22);border-color:color-mix(in srgb, currentColor 20%, transparent);border-radius:16px;text-decoration:none;color:inherit;min-width:0;text-align:left"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/88/df/ca/88dfca29-8da2-57b9-6255-573a190b2323/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" alt="" width="46" height="46" loading="lazy" style="border-radius:11px;flex:0 0 auto" /><span style="min-width:0"><strong style="display:block;font-size:14px;line-height:1.35">OnePage PPT: AI Slide Maker</strong><span style="display:block;font-size:12px;line-height:1.4;opacity:.72">Free · one-time purchase to unlock, no subscription</span><span style="display:block;font-size:12px;line-height:1.4;opacity:.72">View on the App Store</span></span></a></div><p style="margin:10px 0 0;font-size:12px;opacity:.66">Links open the App Store.</p><p style="margin:6px 0 0;font-size:12px;opacity:.66"><a href="https://alice51849.github.io/ios-app-guide/?utm_source=support_site&amp;utm_medium=family_module&amp;utm_campaign=sup_aim990" rel="noopener" style="color:inherit;text-decoration:underline">More app guides &amp; how-tos</a></p></section><!-- ls-family:end -->
-<footer><div class="container">
-  <p>© 2026 Aim990 · <a href="privacy.html">Privacy Policy</a> · <a href="mailto:hourstag.app@gmail.com">Contact</a></p>
-  <p class="disc">TOEIC® is a registered trademark of ETS. Aim990 is not affiliated with, endorsed by, or approved by ETS. All practice content is original and unofficial, created for TOEIC® Listening &amp; Reading-style preparation. Aim990 does not use official questions and does not guarantee any score.</p>
-</div></footer>
+<body data-page="support">
+  <div id="localized-page"></div>
+  <noscript>
+    <main class="noscript-card">
+      <h1>Aim990 Support Center</h1>
+      <p>JavaScript is required to select one of the 50 localized pages.</p>
+      <p><a href="mailto:hourstag.app@gmail.com">hourstag.app@gmail.com</a> · <a href="privacy.html?lang=en-US">Privacy Policy</a></p>
+    </main>
+  </noscript>
 </body>
 </html>
