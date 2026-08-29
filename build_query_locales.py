@@ -411,12 +411,26 @@ def page_html(page: str) -> str:
 """
 
 
+FAMILY_RE = re.compile(r"<!-- ls-family:start -->.*?<!-- ls-family:end -->", re.S)
+
+
+def preserve_family(path: Path, markup: str) -> str:
+    """Keep the shared cross-promo footer when rewriting a legacy query shell."""
+    if not path.is_file() or FAMILY_RE.search(markup):
+        return markup
+    existing = FAMILY_RE.search(path.read_text(encoding="utf-8"))
+    if not existing:
+        return markup
+    return markup.replace("</body>", f"{existing.group(0)}\n</body>", 1)
+
+
 def main() -> int:
     source_locales = {
         path.name
         for path in ROOT.iterdir()
         if path.is_dir()
         and path.name != ".git"
+        and path.name not in GENERATED_LOCALES
         and (path / "support.html").is_file()
         and (path / "privacy.html").is_file()
     }
@@ -448,8 +462,12 @@ def main() -> int:
 .noscript-card{width:min(760px,calc(100% - 40px));margin:60px auto;padding:28px;border:1px solid var(--line);border-radius:20px;background:#fff}
 """
     (ROOT / "style.css").write_text(stylesheet.strip() + "\n", encoding="utf-8")
-    (ROOT / "index.html").write_text(page_html("support"), encoding="utf-8")
-    (ROOT / "privacy.html").write_text(page_html("privacy"), encoding="utf-8")
+    for name, page in (("index.html", "support"), ("privacy.html", "privacy")):
+        target = ROOT / name
+        existing = target.read_text(encoding="utf-8") if target.is_file() else ""
+        if 'data-generated-support-surface="v1"' in existing:
+            continue
+        target.write_text(preserve_family(target, page_html(page)), encoding="utf-8")
     print("Built exact-50 query-localized support and privacy pages.")
     return 0
 

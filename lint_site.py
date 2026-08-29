@@ -182,6 +182,7 @@ def check_html(page: str) -> list[str]:
     filename = "index.html" if page == "support" else "privacy.html"
     text = (ROOT / filename).read_text(encoding="utf-8")
     prefix = BASE_URL if page == "support" else f"{BASE_URL}privacy.html"
+    is_static = 'data-generated-support-surface="v1"' in text
     pairs = re.findall(
         r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">',
         text,
@@ -190,13 +191,46 @@ def check_html(page: str) -> list[str]:
     if set(alternates) != set(OFFICIAL_LOCALES):
         errors.append(f"{filename}: hreflang set is not official exact-50")
     for locale in OFFICIAL_LOCALES:
-        expected = f"{prefix}?lang={locale}"
+        if is_static:
+            relative = (
+                ""
+                if locale == "en-US" and page == "support"
+                else "privacy.html"
+                if locale == "en-US"
+                else f"{locale}/"
+                if page == "support"
+                else f"{locale}/privacy.html"
+            )
+            expected = BASE_URL + relative
+        else:
+            expected = f"{prefix}?lang={locale}"
         if alternates.get(locale) != expected:
             errors.append(f"{filename}: {locale} hreflang URL is not exact")
-    expected_default = f"{prefix}?lang=en-US"
+    expected_default = prefix if is_static else f"{prefix}?lang=en-US"
     if ("x-default", expected_default) not in pairs:
         errors.append(f"{filename}: x-default is missing or incorrect")
-    if f'<body data-page="{page}">' not in text:
+    if is_static:
+        match = re.search(
+            r'<script data-query-locale-redirect="v1">'
+            r'\(\(\)=>\{const routes=(\{.*?\});const params=',
+            text,
+        )
+        if not match:
+            errors.append(f"{filename}: query-locale compatibility redirect is missing")
+        else:
+            routes = json.loads(match.group(1))
+            target = "support.html" if page == "support" else "privacy.html"
+            expected_routes = {
+                locale: (
+                    BASE_URL + target
+                    if locale == "en-US"
+                    else BASE_URL + locale + "/" + target
+                )
+                for locale in OFFICIAL_LOCALES
+            }
+            if routes != expected_routes:
+                errors.append(f"{filename}: query-locale redirect routes are not exact")
+    elif f'<body data-page="{page}">' not in text:
         errors.append(f"{filename}: page identity is missing")
     return errors
 

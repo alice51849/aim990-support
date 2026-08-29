@@ -640,6 +640,36 @@ def generated_footer(
     )
 
 
+def query_locale_redirect(
+    source: dict[str, Any], locale: str, surface: str
+) -> str:
+    if locale != "en-US" or surface not in {"index", "privacy"}:
+        return ""
+    target_surface = "support" if surface == "index" else "privacy"
+    routes = {
+        candidate: canonical_for(source, candidate, target_surface)
+        for candidate in source["official_locales"]
+    }
+    serialized = json.dumps(
+        routes,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).replace("</", "<\\/")
+    return (
+        '<script data-query-locale-redirect="v1">'
+        f"(()=>{{const routes={serialized};"
+        "const params=new URLSearchParams(window.location.search);"
+        'const requested=params.get("lang");'
+        "if(!requested||!Object.hasOwn(routes,requested))return;"
+        'params.delete("lang");'
+        "const query=params.toString();"
+        "window.location.replace(routes[requested]+"
+        '(query?"?"+query:"")+window.location.hash)'
+        "}})();</script>\n"
+    )
+
+
 def generated_document(
     source: dict[str, Any],
     locale: str,
@@ -669,6 +699,7 @@ def generated_document(
         sort_keys=True,
         separators=(",", ":"),
     ).replace("</", "<\\/")
+    redirect = query_locale_redirect(source, locale, surface)
     return f"""<!doctype html>
 <html lang="{esc(locale)}" dir="{direction}">
 <head>
@@ -688,7 +719,7 @@ def generated_document(
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{esc(canonical)}">
 <script type="application/ld+json" data-support-surface-schema="v1">{schema}</script>
-<style>{generated_css(source)}</style>
+{redirect}<style>{generated_css(source)}</style>
 </head>
 <body data-generated-support-surface="v1" data-purchase-model="{esc(public_purchase_model(source))}">
 <div class="shell">
@@ -1037,6 +1068,20 @@ def replace_paid_privacy_copy(source: dict[str, Any]) -> None:
             )
 
 
+def preserve_family_module(path: Path, markup: str) -> str:
+    if not path.is_file() or FAMILY_RE.search(markup):
+        return markup
+    existing = FAMILY_RE.search(path.read_text(encoding="utf-8"))
+    if not existing:
+        return markup
+    anchor = markup.lower().rfind("<footer")
+    if anchor < 0:
+        anchor = markup.lower().rfind("</body>")
+    if anchor < 0:
+        raise ValueError(f"{path.relative_to(ROOT)}: no family-module anchor")
+    return markup[:anchor] + existing.group(0) + "\n" + markup[anchor:]
+
+
 def generate_managed_cells(source: dict[str, Any]) -> None:
     for surface, locales in source["managed_cells"].items():
         for locale in locales:
@@ -1056,7 +1101,11 @@ def generate_managed_cells(source: dict[str, Any]) -> None:
                 markup = render_privacy(source, locale)
             else:
                 raise AssertionError(surface)
-            path.write_text(markup, encoding="utf-8", newline="\n")
+            path.write_text(
+                preserve_family_module(path, markup),
+                encoding="utf-8",
+                newline="\n",
+            )
 
 
 def all_html_files() -> list[Path]:
