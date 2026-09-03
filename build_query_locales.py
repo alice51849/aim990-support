@@ -11,7 +11,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 METADATA_ROOT = ROOT.parent / "Metadata" / "aso" / "loc"
-BASE_URL = "https://alice51849.github.io/aim990-support/"
+BASE_URL = "https://open.cait518.cc/aim990-support/"
+# App Store Connect still has the github.io URLs registered, and this
+# change deliberately does not touch App Store metadata: GitHub Pages
+# remains the origin, so those URLs keep resolving.  Page-facing URLs
+# (canonical, alternates, sitemap, robots) moved to our own domain.
+ASC_BASE_URL = "https://alice51849.github.io/aim990-support/"
 EMAIL = "hourstag.app@gmail.com"
 APP_STORE_URL = "https://apps.apple.com/app/id6784974530"
 OFFICIAL_LOCALES = (
@@ -99,8 +104,8 @@ def source_entry(locale: str) -> dict:
     return {
         "locale": locale,
         "sourceLocale": locale,
-        "supportUrl": f"{BASE_URL}?lang={locale}",
-        "privacyPolicyUrl": f"{BASE_URL}privacy.html?lang={locale}",
+        "supportUrl": f"{ASC_BASE_URL}?lang={locale}",
+        "privacyPolicyUrl": f"{ASC_BASE_URL}privacy.html?lang={locale}",
         **pages,
         "legalNotice": legal_notice(locale),
     }
@@ -349,11 +354,11 @@ def generated_entry(locale: str) -> dict:
         "direction": copy["direction"],
         "supportTitle": copy["supportTitle"],
         "supportDescription": copy["supportDescription"],
-        "supportUrl": f"{BASE_URL}?lang={locale}",
+        "supportUrl": f"{ASC_BASE_URL}?lang={locale}",
         "supportBody": generated_body(copy, notice, "support"),
         "privacyTitle": copy["privacyTitle"],
         "privacyDescription": copy["privacyDescription"],
-        "privacyPolicyUrl": f"{BASE_URL}privacy.html?lang={locale}",
+        "privacyPolicyUrl": f"{ASC_BASE_URL}privacy.html?lang={locale}",
         "privacyBody": generated_body(copy, notice, "privacy"),
         "legalNotice": notice,
     }

@@ -32,8 +32,8 @@
   );
   const absoluteUrl = (kind, code) => (
     kind === "privacy"
-      ? `https://alice51849.github.io/aim990-support/privacy.html?lang=${encodeURIComponent(code)}`
-      : `https://alice51849.github.io/aim990-support/?lang=${encodeURIComponent(code)}`
+      ? `https://open.cait518.cc/aim990-support/privacy.html?lang=${encodeURIComponent(code)}`
+      : `https://open.cait518.cc/aim990-support/?lang=${encodeURIComponent(code)}`
   );
 
   document.documentElement.lang = locale;

@@ -13,7 +13,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 METADATA_ROOT = ROOT.parent / "Metadata" / "aso" / "loc"
-BASE_URL = "https://alice51849.github.io/aim990-support/"
+BASE_URL = "https://open.cait518.cc/aim990-support/"
+# App Store Connect still has the github.io URLs registered, and this
+# change deliberately does not touch App Store metadata: GitHub Pages
+# remains the origin, so those URLs keep resolving.  Page-facing URLs
+# (canonical, alternates, sitemap, robots) moved to our own domain.
+ASC_BASE_URL = "https://alice51849.github.io/aim990-support/"
 EMAIL = "hourstag.app@gmail.com"
 OFFICIAL_LOCALES = (
     "ar-SA", "bn-BD", "ca", "zh-Hans", "zh-Hant", "hr", "cs", "da",
@@ -128,8 +133,8 @@ def check_catalog(payload: dict) -> list[str]:
         if entry["direction"] != expected_direction:
             errors.append(f"{locale}: direction must be {expected_direction}")
         expected_urls = {
-            "supportUrl": f"{BASE_URL}?lang={locale}",
-            "privacyPolicyUrl": f"{BASE_URL}privacy.html?lang={locale}",
+            "supportUrl": f"{ASC_BASE_URL}?lang={locale}",
+            "privacyPolicyUrl": f"{ASC_BASE_URL}privacy.html?lang={locale}",
         }
         for field, expected in expected_urls.items():
             if entry[field] != expected:
@@ -257,8 +262,8 @@ def check_metadata() -> list[str]:
             errors.append(f"{locale}: metadata cannot be read: {error}")
             continue
         expected = {
-            "supportUrl": f"{BASE_URL}?lang={locale}",
-            "privacyPolicyUrl": f"{BASE_URL}privacy.html?lang={locale}",
+            "supportUrl": f"{ASC_BASE_URL}?lang={locale}",
+            "privacyPolicyUrl": f"{ASC_BASE_URL}privacy.html?lang={locale}",
         }
         for field, value in expected.items():
             if payload.get(field) != value:
