@@ -1,0 +1,26 @@
+{
+  "name": "Aim990: Fix English Weak Spots",
+  "short_name": "Aim990: Fix English Weak Spots",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/89/68/e0/8968e0fd-ce56-a07d-0c89-286610782717/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.alice51849.aim990",
+      "url": "https://play.google.com/store/apps/details?id=com.alice51849.aim990&referrer=utm_source%3Dsupport_site%26utm_medium%3Dpwa_banner%26utm_campaign%3Daim990"
+    }
+  ],
+  "prefer_related_applications": true,
+  "x_generator": "ls-pwa/1"
+}
