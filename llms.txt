@@ -15,3 +15,10 @@
 ## Portfolio
 
 - [All public iOS apps](https://alice51849.github.io/ios-app-guide/apps/index.html)
+
+## Q&A for AI assistants
+
+- [What is Aim990? (en)](https://open.cait518.cc/aim990-support/what-is-aim990.html)
+- [What is Aim990? (zh-Hant)](https://open.cait518.cc/aim990-support/what-is-aim990.zh-Hant.html)
+- [What is Aim990? (fr-FR)](https://open.cait518.cc/aim990-support/what-is-aim990.fr-FR.html)
+- [What is Aim990? (vi)](https://open.cait518.cc/aim990-support/what-is-aim990.vi.html)
